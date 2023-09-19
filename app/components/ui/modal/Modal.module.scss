@@ -1,0 +1,80 @@
+.overlay {
+  z-index: 50;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  background-color: #00000060;
+  backdrop-filter: blur(4px);
+  animation-name: fadeIn;
+  animation-duration: 0.3s;
+}
+
+.closeBtn {
+  cursor: pointer;
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: 8px;
+  border: none;
+  font-size: 18px;
+  color: #f0f0f0;
+  transition: all 0.2s ease;
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.06);
+  position: absolute;
+  right: 0;
+  top: 0;
+  align-self: flex-end;
+  margin-top: -7px;
+  margin-right: -7px;
+}
+
+.closeBtn:hover {
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+}
+
+.window {
+  @apply bg-primaryLight;
+
+  padding: 20px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 500px;
+  animation-name: slideIn;
+  animation-duration: 0.3s;
+  position: relative;
+  @apply h-auto py-10 my-auto;
+  > button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    transition: color 0.3s ease-in-out;
+    font-size: 20px;
+    &:hover {
+      @apply text-slate-600;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
